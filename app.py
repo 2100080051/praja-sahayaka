@@ -127,8 +127,15 @@ with st.sidebar:
 
 input_text = None
 
+if "last_processed_audio" not in st.session_state:
+    st.session_state.last_processed_audio = None
+
 if audio:
-    input_text = sr_handler.transcribe_audio(audio['bytes'], language=selected_language_code)
+    if audio['bytes'] != st.session_state.last_processed_audio:
+        st.session_state.last_processed_audio = audio['bytes']
+        input_text = sr_handler.transcribe_audio(audio['bytes'], language=selected_language_code)
+    else:
+        input_text = None
 
 if user_input:
     input_text = user_input

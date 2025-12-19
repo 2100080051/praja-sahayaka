@@ -14,3 +14,4 @@ edge-tts
 streamlit-mic-recorder
 nest_asyncio
 PyPDF2
+duckduckgo-search

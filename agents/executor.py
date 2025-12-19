@@ -3,13 +3,29 @@ from services.llm_service import query_llm
 from services.memory_service import get_recent_context
 import json
 
-def search_scheme_knowledge(scheme_name: str):
+def search_scheme_knowledge(scheme_name: str, search_results=None):
+    context = ""
+    if search_results:
+        context = f"\nHere is some information found online:\n{json.dumps(search_results)}\n"
+        
     system_prompt = f"""
-    You are an expert on Indian Government Schemes (Telangana & AP).
+    You are an expert on Indian Government Schemes (Telangana, Andhra Pradesh & Central).
     The user is asking about: {scheme_name}.
-    Provide a valid JSON summary of this scheme if you know it.
-    Format: {{"name_telugu": "...", "description_telugu": "...", "benefits_telugu": "...", "eligibility_rules": {{...}}}}
-    If you don't know, return null.
+    {context}
+    
+    Provide a valid JSON summary of this scheme.
+    Format:
+    {{
+        "name_telugu": "...", 
+        "description_telugu": "...", 
+        "benefits_telugu": "...", 
+        "eligibility_rules": {{...}},
+        "state": "Telangana/Andhra Pradesh/Central" 
+    }}
+    
+    If it is a Central scheme, mark state as "Central". 
+    If it is specific to a state, mark appropriately.
+    If you don't know and no online info helps, return null.
     """
     response = query_llm([{"role": "system", "content": system_prompt}])
     try:
@@ -30,9 +46,13 @@ def executor_agent(plan: dict):
         if scheme:
             return {"status": "success", "data": scheme, "type": "scheme_details"}
         else:
-            llm_scheme = search_scheme_knowledge(scheme_name)
+            # Try online search
+            from tools.definitions import search_online_schemes
+            search_results = search_online_schemes(scheme_name)
+            
+            llm_scheme = search_scheme_knowledge(scheme_name, search_results)
             if llm_scheme:
-                 return {"status": "success", "data": llm_scheme, "type": "scheme_details_web", "source": "llm_knowledge"}
+                 return {"status": "success", "data": llm_scheme, "type": "scheme_details_web", "source": "llm_knowledge_web"}
             
             return {"status": "error", "message": "Scheme not found", "available": get_available_schemes()}
 
@@ -87,6 +107,7 @@ def responder_agent(user_input: str, execution_result: dict):
     - If the result contains a checklist, list the documents clearly with bullet points.
     - If eligibility is confirmed, congratulate them warmly.
     - If details are missing, ask for them politely, explaining WHY they are needed.
+    - SEGREGATION: Clearly mention if the scheme belongs to TELANGANA, ANDHRA PRADESH, or CENTRAL GOVERNMENT at the beginning of the explanation.
     """
     
     context = f"History:\n{history_context}\n\nCurrent User Input: {user_input}\nSystem Execution Result: {execution_result}"

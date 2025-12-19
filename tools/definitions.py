@@ -1,7 +1,16 @@
 import json
 import os
+from duckduckgo_search import DDGS
 
 DATA_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "schemes.json")
+
+def search_online_schemes(query: str, max_results=3):
+    try:
+        results = DDGS().text(query + " scheme details telangana andhra pradesh india", max_results=max_results)
+        return results
+    except Exception as e:
+        print(f"Search error: {e}")
+        return None
 
 def load_schemes():
     with open(DATA_PATH, "r", encoding="utf-8") as f:
