@@ -1,0 +1,18 @@
+fastapi
+uvicorn
+python-dotenv
+requests
+SpeechRecognition
+gTTS
+
+pydub
+colorama
+openai
+# For audio handling on windows
+pyaudio
+pygame
+streamlit
+edge-tts
+streamlit-mic-recorder
+nest_asyncio
+PyPDF2

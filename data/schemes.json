@@ -1,0 +1,361 @@
+{
+  "schemes": [
+    {
+      "id": "rythu_bandhu",
+      "state": "telangana",
+      "name_telugu": "రైతు బంధు",
+      "description_telugu": "తెలంగాణ ప్రభుత్వం ప్రవేశపెట్టిన ఈ పథకం ద్వారా రైతులకు పంట పెట్టుబడి కోసం ఎకరానికి రూ. 5000 (సంవత్సరానికి రెండు సీజన్లకు కలిపి రూ. 10000) ఆర్థిక సాయం అందుతుంది.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer",
+          "రైతు"
+        ],
+        "land_ownership": true,
+        "location": "telangana"
+      },
+      "benefits_telugu": "ఎకరానికి సీజన్‌కు 5000 రూపాయల పెట్టుబడి సాయం.",
+      "documents_required": [
+        "పట్టాదార్ పాస్ బుక్",
+        "ఆధార్ కార్డు",
+        "బ్యాంక్ పాస్ బుక్ చిరునామా"
+      ]
+    },
+    {
+      "id": "rythu_bheema",
+      "state": "telangana",
+      "name_telugu": "రైతు బీమా",
+      "description_telugu": "ఏదైనా కారణం చేత రైతు మరణిస్తే, వారి కుటుంబానికి రూ. 5 లక్షల బీమా సాయం 10 రోజుల్లో అందుతుంది.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer"
+        ],
+        "age_min": 18,
+        "age_max": 59,
+        "resident": "telangana"
+      },
+      "benefits_telugu": "మరణించిన రైతు కుటుంబానికి రూ. 5 లక్షలు.",
+      "documents_required": [
+        "మరణ ధృవీకరణ పత్రం",
+        "క్లైమ్ ఫారం",
+        "నామినీ ఆధార్ కార్డు",
+        "రైతు పట్టాదార్ పాస్ బుక్"
+      ]
+    },
+    {
+      "id": "maha_lakshmi",
+      "state": "telangana",
+      "name_telugu": "మహాలక్ష్మి పథకం",
+      "description_telugu": "మహిళల సంక్షేమం కోసం: 1. నెలకు రూ. 2500 ఆర్థిక సాయం 2. రూ. 500 కే గ్యాస్ సిలిండర్ 3. ఆర్టీసీ బస్సుల్లో ఉచిత ప్రయాణం.",
+      "eligibility_rules": {
+        "gender": "female",
+        "resident": "telangana",
+        "card_type": "white_ration_card"
+      },
+      "benefits_telugu": "నెలకు రూ. 2500, రూ. 500 కే గ్యాస్, ఉచిత బస్సు ప్రయాణం.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "తెల్ల రేషన్ కార్డు",
+        "గ్యాస్ కనెక్షన్ బుక్"
+      ]
+    },
+    {
+      "id": "kalyana_lakshmi",
+      "state": "telangana",
+      "name_telugu": "కల్యాణ లక్ష్మి / షాదీ ముబారక్",
+      "description_telugu": "పేద కుటుంబాల ఆడపిల్లల వివాహానికి రూ. 1,00,116 ఆర్థిక సాయం అందిస్తారు.",
+      "eligibility_rules": {
+        "age_min": 18,
+        "income_limit": 200000,
+        "resident": "telangana"
+      },
+      "benefits_telugu": "రూ. 1,00,116 ఆర్థిక సాయం.",
+      "documents_required": [
+        "వధువు మరియు వరుడి ఆధార్ కార్డులు",
+        "వయస్సు ధృవీకరణ పత్రం (SSC మెమో)",
+        "కుల ధృవీకరణ పత్రం",
+        "ఆదాయ ధృవీకరణ పత్రం",
+        "పెళ్లి పత్రిక",
+        "బ్యాంక్ ఖాతా వివరాలు"
+      ]
+    },
+    {
+      "id": "ambedkar_overseas_vidya_nidhi",
+      "state": "telangana",
+      "name_telugu": "అంబేద్కర్ ఓవర్సీస్ విద్యానిధి",
+      "description_telugu": "విదేశాల్లో వినిత విద్య కోసం ఎస్సీ, ఎస్టీ విద్యార్థులకు రూ. 20 లక్షల వరకు ఆర్థిక సాయం.",
+      "eligibility_rules": {
+        "education": "degree",
+        "caste_category": [
+          "SC",
+          "ST"
+        ],
+        "income_limit": 500000,
+        "resident": "telangana"
+      },
+      "benefits_telugu": "రూ. 20 లక్షల వరకు గ్రాంట్.",
+      "documents_required": [
+        "పాస్పోర్ట్",
+        "ఐ-20 లేదా అడ్మిషన్ లెటర్",
+        "కుల, ఆదాయ ధృవీకరణ పత్రాలు",
+        "డిగ్రీ మార్కుల మెమో",
+        "ఆధార్ కార్డు"
+      ]
+    },
+    {
+      "id": "dalit_bandhu",
+      "state": "telangana",
+      "name_telugu": "దళిత బంధు",
+      "description_telugu": "దళిత కుటుంబాలు వ్యాపారం పెట్టుకోవడానికి 10 లక్షల రూపాయల ఆర్థిక సాయం (తిరిగి చెల్లించాల్సిన పనిలేదు).",
+      "eligibility_rules": {
+        "caste_category": [
+          "SC",
+          "దళితులు"
+        ],
+        "resident": "telangana"
+      },
+      "benefits_telugu": "రూ. 10 లక్షల ఉచిత ఆర్థిక సాయం.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "కుల ధృవీకరణ పత్రం",
+        "బ్యాంక్ ఖాతా వివరాలు",
+        "వ్యాపార ప్రణాళిక (Business Plan)"
+      ]
+    },
+    {
+      "id": "ysr_rythu_bharosa",
+      "state": "andhra_pradesh",
+      "name_telugu": "వైఎస్ఆర్ రైతు భరోసా",
+      "description_telugu": "ఆంధ్రప్రదేశ్ రైతులకు పెట్టుబడి సాయం కింద ఏటా రూ. 13,500 అందిస్తారు.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer"
+        ],
+        "resident": "andhra_pradesh"
+      },
+      "benefits_telugu": "ఏటా రూ. 13,500 పెట్టుబడి సాయం.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "పట్టాదార్ పాస్ బుక్",
+        "బ్యాంక్ ఖాతా వివరాలు"
+      ]
+    },
+    {
+      "id": "ysr_aarogyasri",
+      "state": "andhra_pradesh",
+      "name_telugu": "వైఎస్ఆర్ ఆరోగ్యశ్రీ",
+      "description_telugu": "పేదలకు పూర్తి ఉచిత వైద్యం. రూ. 5 లక్షల లోపు ఆదాయం ఉన్నవారికి వర్తిస్తుంది.",
+      "eligibility_rules": {
+        "income_limit": 500000,
+        "resident": "andhra_pradesh"
+      },
+      "benefits_telugu": "ఉచిత వైద్య చికిత్స మరియు ఆపరేషన్లు.",
+      "documents_required": [
+        "ఆరోగ్యశ్రీ కార్డు / తెల్ల రేషన్ కార్డు",
+        "ఆధార్ కార్డు",
+        "డిశ్చార్జ్ సమ్మరీ (చికిత్స తర్వాత)"
+      ]
+    },
+    {
+      "id": "amma_vodi",
+      "state": "andhra_pradesh",
+      "name_telugu": "అమ్మ ఒడి",
+      "description_telugu": "తమ పిల్లలను బడికి పంపే తల్లులకు ఏటా రూ. 15,000 ఆర్థిక సాయం.",
+      "eligibility_rules": {
+        "child_status": "student",
+        "mother_status": "alive",
+        "resident": "andhra_pradesh"
+      },
+      "benefits_telugu": "ఏటా రూ. 15,000.",
+      "documents_required": [
+        "తల్లి ఆధార్ కార్డు",
+        "విద్యార్థి స్కూల్ ఐడి / బోనఫైడ్ సర్టిఫికేట్",
+        "తెల్ల రేషన్ కార్డు",
+        "బ్యాంక్ ఖాతా బుక్"
+      ]
+    },
+    {
+      "id": "annadatha_sukhibhava",
+      "state": "andhra_pradesh",
+      "name_telugu": "అన్నదాత సుఖీభవ",
+      "description_telugu": "ఆంధ్రప్రదేశ్ కొత్త ప్రభుత్వం (కూటమి) రైతులకు ఏటా రూ. 20,000 ఆర్థిక సాయం అందిస్తుంది.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer"
+        ],
+        "resident": "andhra_pradesh"
+      },
+      "benefits_telugu": "ఏటా రూ. 20,000.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "పట్టాదార్ పాస్ బుక్",
+        "బ్యాంక్ ఖాతా వివరాలు"
+      ]
+    },
+    {
+      "id": "deepam_scheme",
+      "state": "andhra_pradesh",
+      "name_telugu": "దీపం పథకం",
+      "description_telugu": "ఏటా 3 గ్యాస్ సిలిండర్లు ఉచితంగా అందిస్తారు.",
+      "eligibility_rules": {
+        "resident": "andhra_pradesh",
+        "card_type": "white_ration_card"
+      },
+      "benefits_telugu": "సంవత్సరానికి 3 ఉచిత గ్యాస్ సిలిండర్లు.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "తెల్ల రేషన్ కార్డు",
+        "గ్యాస్ కనెక్షన్ బుక్"
+      ]
+    },
+    {
+      "id": "thalliki_vandanam",
+      "state": "andhra_pradesh",
+      "name_telugu": "తల్లికి వందనం",
+      "description_telugu": "పాఠశాలకు వెళ్లే ప్రతి బిడ్డకు ఆర్థిక సాయం అందించే పథకం.",
+      "eligibility_rules": {
+        "child_status": "student",
+        "resident": "andhra_pradesh"
+      },
+      "benefits_telugu": "ఏటా రూ. 15,000 (అంచనా/ప్రకటించాల్సి ఉంది).",
+      "documents_required": [
+        "తల్లి మరియు విద్యార్థి ఆధార్",
+        "స్కూల్ ఐడి",
+        "బ్యాంక్ పాస్ బుక్"
+      ]
+    },
+    {
+      "id": "pm_kisan",
+      "state": "central",
+      "name_telugu": "ప్రధాన మంత్రి కిసాన్ సమ్మాన్ నిధి (PM-KISAN)",
+      "description_telugu": "దేశవ్యాప్తంగా రైతుల ఖాతాల్లోకి నేరుగా ఏటా రూ. 6000 జమ చేసే కేంద్ర ప్రభుత్వ పథకం.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer"
+        ],
+        "land_ownership": true
+      },
+      "benefits_telugu": "ఏటా రూ. 6000 (విడతకు రూ. 2000 చొప్పున).",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "భూమి రికార్డులు (ROR)",
+        "బ్యాంక్ పాస్ బుక్"
+      ]
+    },
+    {
+      "id": "ayushman_bharat",
+      "state": "central",
+      "name_telugu": "ఆయుష్మాన్ భారత్ (PMJAY)",
+      "description_telugu": "పేద కుటుంబాలకు సంవత్సరానికి రూ. 5 లక్షల వరకు ఉచిత వైద్య బీమా.",
+      "eligibility_rules": {
+        "income_status": "poor",
+        "list_inclusion": "SECC_data"
+      },
+      "benefits_telugu": "రూ. 5 లక్షల వరకు ఉచిత వైద్యం.",
+      "documents_required": [
+        "రేషన్ కార్డు",
+        "ఆధార్ కార్డు",
+        "ఆయుష్మాన్ గోల్డెన్ కార్డు"
+      ]
+    },
+    {
+      "id": "pm_awas_yojana",
+      "state": "central",
+      "name_telugu": "ప్రధాన మంత్రి ఆవాస్ యోజన (PMAY)",
+      "description_telugu": "సొంత ఇల్లు లేని పేదలకు పక్కా ఇళ్లు నిర్మించుకోవడానికి ఆర్థిక సాయం.",
+      "eligibility_rules": {
+        "housing_status": "homeless_or_katcha_house"
+      },
+      "benefits_telugu": "ఇంటి నిర్మాణానికి ఆర్థిక సాయం మరియు వడ్డీ రాయితీ.",
+      "documents_required": [
+        "ఆధార్ కార్డు",
+        "ఉపాధి హామీ జాబ్ కార్డు",
+        "గ్రామ సభ తీర్మానం",
+        "బ్యాంక్ ఖాతా"
+      ]
+    },
+    {
+      "id": "sukanya_samriddhi",
+      "state": "central",
+      "name_telugu": "సుకన్య సమృద్ధి యోజన",
+      "description_telugu": "ఆడపిల్లల భవిష్యత్తు కోసం పొదుపు పథకం. అధిక వడ్డీ రేటు లభిస్తుంది.",
+      "eligibility_rules": {
+        "child_gender": "female",
+        "age_max": 10
+      },
+      "benefits_telugu": "అధిక వడ్డీ (ప్రస్తుతం సుమారు 8%), పన్ను మినహాయింపు.",
+      "documents_required": [
+        "బాలిక జనన ధృవీకరణ పత్రం",
+        "తల్లిదండ్రుల ఆధార్",
+        "ఫోటోలు"
+      ]
+    },
+    {
+      "id": "pm_mudra_yojana",
+      "state": "central",
+      "name_telugu": "ప్రధాన మంత్రి ముద్రా యోజన",
+      "description_telugu": "చిన్న వ్యాపారులకు రూ. 10 లక్షల వరకు పూచీకత్తు లేని రుణాలు.",
+      "eligibility_rules": {
+        "occupation": [
+          "business",
+          "self_employed"
+        ]
+      },
+      "benefits_telugu": "శిశు, కిషోర్, తరుణ్ వర్గాల కింద రూ. 10 లక్షల వరకు రుణం.",
+      "documents_required": [
+        "వ్యాపార ప్రణాళిక",
+        "KYC పత్రాలు (ఆధార్/పాన్)",
+        "బ్యాంక్ స్టేట్‌మెంట్",
+        "వ్యాపార రిజిస్ట్రేషన్ సర్టిఫికేట్"
+      ]
+    },
+    {
+      "id": "beta_bachao_beti_padhao",
+      "state": "central",
+      "name_telugu": "బేటీ బచావో బేటీ పఢావో",
+      "description_telugu": "ఆడపిల్లల రక్షణ మరియు చదువును ప్రోత్సహించే పథకం.",
+      "eligibility_rules": {
+        "gender": "female"
+      },
+      "benefits_telugu": "విద్యా మరియు సామాజిక అవగాహన, బాలికల నిష్పత్తి పెంపు.",
+      "documents_required": [
+        "బాలిక ఆధార్",
+        "జనన ధృవీకరణ పత్రం"
+      ]
+    },
+    {
+      "id": "pm_matru_vandana",
+      "state": "central",
+      "name_telugu": "ప్రధాన మంత్రి మాతృ వందన యోజన",
+      "description_telugu": "గర్భిణీ స్త్రీలకు మరియు బాలింతలకు రూ. 5000 ఆర్థిక సాయం.",
+      "eligibility_rules": {
+        "status": "pregnant_or_lactating",
+        "child_count": 1
+      },
+      "benefits_telugu": "రూ. 5000 నగదు బదిలీ.",
+      "documents_required": [
+        "తల్లి ఆధార్",
+        "MCP కార్డు (టీకాల కార్డు)",
+        "బ్యాంక్ పాస్ బుక్"
+      ]
+    },
+    {
+      "id": "pm_fasal_bima",
+      "state": "central",
+      "name_telugu": "ప్రధాన మంత్రి ఫసల్ బీమా యోజన",
+      "description_telugu": "ప్రకృతి వైపరీత్యాల వల్ల పంట నష్టపోతే పరిహారం అందించే పంటల బీమా పథకం.",
+      "eligibility_rules": {
+        "occupation": [
+          "farmer"
+        ],
+        "crop_insured": true
+      },
+      "benefits_telugu": "పంట నష్ట పరిహారం.",
+      "documents_required": [
+        "భూమి రికార్డులు",
+        "పంట వివరాలు",
+        "ఆధార్ కార్డు",
+        "బ్యాంక్ ఖాతా"
+      ]
+    }
+  ]
+}
