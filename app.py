@@ -70,10 +70,34 @@ user_input = st.chat_input("మీ ప్రశ్నను ఇక్కడ ట�
 with st.sidebar:
     st.header("Tools")
     
+    st.subheader("🌐 Language & Voice")
+    
+    # Language Selection
+    language_options = {
+        "Telugu (తెలుగు)": "te-IN",
+        "English (India)": "en-IN",
+        "Hindi (हिंदी)": "hi-IN",
+        "Kannada (కన్నడ)": "kn-IN",
+        "Tamil (తమిళం)": "ta-IN"
+    }
+    selected_language_name = st.selectbox(
+        "Select Language for Voice",
+        options=list(language_options.keys()),
+        index=0 # Default to Telugu
+    )
+    selected_language_code = language_options[selected_language_name]
+        
+    st.divider()
+
     # mic
     try:
         from streamlit_mic_recorder import mic_recorder
-        audio = mic_recorder(start_prompt="🎤 మాట్లాడండి (Speak)", stop_prompt="⏹️ ఆపండి (Stop)", key='recorder')
+        audio = mic_recorder(
+            start_prompt="🎤 మాట్లాడండి (Speak)", 
+            stop_prompt="⏹️ ఆపండి (Stop)", 
+            key='recorder',
+            format="webm" # explicit format
+        )
     except ImportError:
         st.error("Please install streamlit-mic-recorder")
         audio = None
@@ -104,7 +128,7 @@ with st.sidebar:
 input_text = None
 
 if audio:
-    input_text = sr_handler.transcribe_audio(audio['bytes'])
+    input_text = sr_handler.transcribe_audio(audio['bytes'], language=selected_language_code)
 
 if user_input:
     input_text = user_input
@@ -120,18 +144,31 @@ if input_text:
 
     with st.spinner("Processing..."):
         # We pass full_prompt to the planner so it knows about the doc
+        
+        import time
+        t0 = time.time()
+        
         plan = planner_agent(full_prompt)
+        t1 = time.time()
+        print(f"[{t1}] Planner took: {t1 - t0:.2f}s")
         
         # If the plan is general chat but we have a doc, the agent should handle it via LLM
         # Executor runs as normal
         result = executor_agent(plan)
+        t2 = time.time()
+        print(f"[{t2}] Executor took: {t2 - t1:.2f}s")
         
         # Responder usually takes just user_input, but here we want it to know about the doc context too
         # to answer questions like "Is this valid?"
         # So we pass full_prompt to responder as well
         response_text = responder_agent(full_prompt, result)
+        t3 = time.time()
+        print(f"[{t3}] Responder took: {t3 - t2:.2f}s")
         
         audio_bytes = get_voice_audio(response_text)
+        t4 = time.time()
+        print(f"[{t4}] TTS (Voice Gen) took: {t4 - t3:.2f}s. Total Latency: {t4 - t0:.2f}s")
+        
         save_interaction(input_text, response_text, plan)
 
     st.session_state.messages.append({"role": "assistant", "content": response_text, "audio": audio_bytes})

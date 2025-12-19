@@ -8,9 +8,7 @@ gTTS
 pydub
 colorama
 openai
-# For audio handling on windows
-pyaudio
-pygame
+# pyaudio and pygame removed as they are for local voice loop only
 streamlit
 edge-tts
 streamlit-mic-recorder

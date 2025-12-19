@@ -3,9 +3,15 @@ import json
 import requests
 from dotenv import load_dotenv
 
+import streamlit as st
+
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+# Try getting from secrets first (Streamlit Cloud), then env (Local)
+try:
+    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+except (FileNotFoundError, KeyError, AttributeError):
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 def query_llm(messages, model="llama-3.3-70b-versatile"):
     headers = {
