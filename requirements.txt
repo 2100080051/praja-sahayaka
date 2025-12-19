@@ -9,7 +9,7 @@ pydub
 colorama
 openai
 # For audio handling on windows
-pyaudio
+
 pygame
 streamlit
 edge-tts
