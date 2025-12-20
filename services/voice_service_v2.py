@@ -21,9 +21,9 @@ def get_voice_audio(text: str):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
         tmp_filename = tmp_file.name
     
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     try:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
         loop.run_until_complete(generate_voice_file(text, tmp_filename))
         
         if os.path.exists(tmp_filename):
@@ -32,6 +32,7 @@ def get_voice_audio(text: str):
             return data
         return None
     finally:
+        loop.close()
         # Cleanup
         if os.path.exists(tmp_filename):
             try:

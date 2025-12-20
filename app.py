@@ -60,10 +60,12 @@ for i, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
         if "audio" in msg and msg["audio"]:
-            # Autoplay ONLY the last message to avoid chaos on reload
-            # And only if it's an assistant message
-            is_last_message = (i == len(st.session_state.messages) - 1)
-            st.audio(msg["audio"], format="audio/mp3", start_time=0, autoplay=is_last_message)
+            # Autoplay only if specifically requested for this turn (consume-once)
+            should_autoplay = msg.get("autoplay_now", False)
+            if should_autoplay:
+                msg["autoplay_now"] = False # Disable for future reruns
+                
+            st.audio(msg["audio"], format="audio/mp3", start_time=0, autoplay=should_autoplay)
 
 user_input = st.chat_input("మీ ప్రశ్నను ఇక్కడ టైప్ చేయండి (లేదా మైక్ ఉపయోగించండి)...")
 
@@ -178,7 +180,7 @@ if input_text:
         
         save_interaction(input_text, response_text, plan)
 
-    st.session_state.messages.append({"role": "assistant", "content": response_text, "audio": audio_bytes})
+    st.session_state.messages.append({"role": "assistant", "content": response_text, "audio": audio_bytes, "autoplay_now": True})
     with st.chat_message("assistant"):
         st.markdown(response_text)
         if audio_bytes:

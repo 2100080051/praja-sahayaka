@@ -44,6 +44,13 @@ def executor_agent(plan: dict):
         scheme = get_scheme_details(scheme_name)
         
         if scheme:
+            # Explicitly add segregation hint for the LLM
+            state_map = {
+                "telangana": "TELANGANA STATE GOVERNMENT",
+                "andhra_pradesh": "ANDHRA PRADESH STATE GOVERNMENT",
+                "central": "CENTRAL GOVERNMENT (INDIA)"
+            }
+            scheme["segregation_hint"] = state_map.get(scheme.get("state"), "GOVERNMENT")
             return {"status": "success", "data": scheme, "type": "scheme_details"}
         else:
             # Try online search

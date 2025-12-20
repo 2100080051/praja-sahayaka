@@ -20,9 +20,26 @@ def get_scheme_details(scheme_name_query: str):
     if not scheme_name_query:
         return None
     schemes = load_schemes()
+    query_lower = scheme_name_query.lower()
+    query_parts = query_lower.split()
+    
     for scheme in schemes:
-        if scheme_name_query.lower() in scheme["id"] or scheme_name_query in scheme["name_telugu"]:
+        sid = scheme["id"].lower()
+        sname = scheme["name_telugu"]
+        
+        # 1. Exact ID match (partial)
+        if query_lower in sid:
             return scheme
+            
+        # 2. Telugu name match
+        if scheme_name_query in sname:
+            return scheme
+            
+        # 3. Robust "Word" match (e.g. "aarogyasri" matches "ysr_aarogyasri")
+        # If all substantial parts of query are in ID
+        if all(part in sid for part in query_parts if len(part) > 2):
+            return scheme
+
     return None
 
 def check_eligibility(scheme_id: str, user_data: dict):

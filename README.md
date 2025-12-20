@@ -19,15 +19,15 @@ This is an end-to-end agentic AI system that operates in Telugu. It is designed 
 
 ## Running the Agent
 
-### Voice Mode (Default)
-Run the following command to start the voice interaction loop:
+### Streamlit Web App (Recommended)
+Run the following command to start the web interface:
 ```bash
-python main.py
+streamlit run app.py
 ```
-- The agent will speak a greeting in Telugu.
-- Speak into your microphone in Telugu.
-- Wait for the agent to process and reply in Telugu.
-- Say "ఆపు" (Aapu) or "Stop" to exit.
+- A web page will open.
+- Select your preferred language for TTS.
+- Click the microphone icon to speak.
+- The agent will process and reply with both text and audio.
 
 ### Text/CLI Mode (Debug)
 If you want to test the logic without speaking:
